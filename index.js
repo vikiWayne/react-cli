@@ -42,6 +42,7 @@ inquirer.prompt(QUESTIONS).then((answers) => {
   const { componentName, filePath, template } = answers;
 
   const isTypescript = template.toLowerCase() === "y";
+  const templateFolderName = isTypescript ? "/ts" : "/js";
 
   const destinationPath = `${CURR_DIR}/${filePath}/${componentName}`;
 
@@ -52,8 +53,7 @@ inquirer.prompt(QUESTIONS).then((answers) => {
     console.log(e);
   }
   createComponentFiles(componentName, {
-    templatePath,
+    templatePath: templatePath + templateFolderName,
     destinationPath,
-    isTypescript,
   });
 });
