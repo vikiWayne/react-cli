@@ -1,1 +1,2 @@
-export type ComponentProps = {};
+import { PropsWithChildren } from "react";
+export type ComponentProps = {} & PropsWithChildren;
